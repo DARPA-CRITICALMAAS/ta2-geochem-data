@@ -12,6 +12,7 @@ attributes:
   uri: [1.., 0]
   isotope: [1.., 1]
   element: [1.., 2]
+  cas_number: [1.., 3]
 alignments:
   - type: auto
 semantic_model:
@@ -20,6 +21,7 @@ semantic_model:
       - [drepr:uri, uri]
       - [rdfs:label, isotope, xsd:string]
       - [gemo:element, element, xsd:string]
+      - [gemo:cas_number, cas_number, xsd:string]
   prefixes:
     gemr: https://geochemistry.isi.edu/resource/
     gemo: https://geochemistry.isi.edu/ontology/

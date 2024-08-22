@@ -1,0 +1,31 @@
+version: 3
+
+resources: csv
+
+preprocessing:
+  - type: pmap
+    path: [1.., 0]
+    code: |
+      return "https://geochemistry.isi.edu/resource/" + value
+
+attributes:
+  uri: [1.., 0]
+  isotope: [1.., 1]
+  element: [1.., 2]
+alignments:
+  - type: auto
+semantic_model:
+  gemo:Isotope:1:
+    properties:
+      - [drepr:uri, uri]
+      - [rdfs:label, isotope, xsd:string]
+      - [gemo:element, element, xsd:string]
+  prefixes:
+    gemr: https://geochemistry.isi.edu/resource/
+    gemo: https://geochemistry.isi.edu/ontology/
+    mnr: https://minmod.isi.edu/resource/
+    mno: https://minmod.isi.edu/ontology/
+    rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+    rdfs: http://www.w3.org/2000/01/rdf-schema#
+    skos: http://www.w3.org/2004/02/skos/core#
+    drepr: https://purl.org/drepr/1.0/

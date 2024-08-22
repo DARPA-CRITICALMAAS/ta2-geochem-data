@@ -1,0 +1,18 @@
+version: 1
+
+services:
+  - name: predefined entities
+    classpath: statickg.services.drepr.DReprService
+    args:
+      path:
+        - ::CFG_DIR::extractors/isotope.yml
+      format: turtle
+pipeline:
+  - service: validate filename
+    args:
+      input:
+        - ::REPO::entities/*.csv
+  - service: predefined entities
+    args:
+      input: ::REPO::entities/*.csv
+      output: ::DATA_DIR::predefined-entities/
